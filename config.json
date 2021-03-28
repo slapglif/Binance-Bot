@@ -1,0 +1,13 @@
+{
+  "ticker_api": "https://api.binance.com/api/v3/ticker/price",
+  "exchange_api": "https://api.binance.com//api/v1/exchangeInfo",
+  "api_key": "",
+  "api_secret": "",
+  "wait_time": 5,
+  "buy_price_change": 3,
+  "buy_quantity_btc": 0.0022,
+  "expected_change_buy": 2,
+  "expected_change_sell": 10,
+  "final_buy_price_change": 1
+
+}

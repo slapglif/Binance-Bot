@@ -11,7 +11,7 @@ Session = sessionmaker(bind=engine)
 db = Session()
 
 
-class Trade(Base):
+class Trades(Base):
 
     __tablename__ = 'trade'
 
@@ -23,17 +23,17 @@ class Trade(Base):
 
     @staticmethod
     def get_or_create(pair):
-        setup = db.query(Trade).filter_by(pair=pair).first()
+        setup = db.query(Trades).filter_by(pair=pair).first()
         if setup is None:
-            entry = Trade(pair=pair)
+            entry = Trades(pair=pair)
             db.add(entry)
             db.commit()
-        setup = db.query(Trade).filter_by(pair=pair).first()
+        setup = db.query(Trades).filter_by(pair=pair).first()
         return setup
 
     @staticmethod
     def find(pair):
-        setup = Session().query(Trade).filter_by(pair=pair).first()
+        setup = Session().query(Trades).filter_by(pair=pair).first()
         return setup
 
 
