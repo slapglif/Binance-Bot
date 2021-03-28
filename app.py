@@ -64,8 +64,7 @@ def check_buy_status(pair):
         print("Checking status...")
         open_orders = db.query(Trades).filter_by(pair=pair)
         for open_order in open_orders:
-            if open_order.pair is not None:
-                if open_order.orderId is not None:
+            if open_order.pair and open_order.orderId:
                     check = trade_api.client.get_order(
                         symbol=open_order.pair,
                         recvWindow=10000,
