@@ -23,8 +23,11 @@ class TradeAPI:
         # Transform 1% to 1.01
         self.final_buy_price_change = config.final_buy_price_change + self.buy_price_change / 100
         # Retrieve data from Binance
-        self.ticker_data = requests.get(config.ticker_api).json()
-        self.exchange_data = requests.get(config.exchange_api).json()
+        try:
+            self.ticker_data = requests.get(config.ticker_api).json()
+            self.exchange_data = requests.get(config.exchange_api).json()
+        except json.JSONDecodeError as e:
+            print(e)
         self.symbols = [self.ticker_data[ticker].get('symbol') for ticker in range(len(self.ticker_data)) if "BTC" in self.ticker_data[ticker].get('symbol')]
         self.symbol_data = self.exchange_data.get('symbols')
 
