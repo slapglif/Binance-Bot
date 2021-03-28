@@ -8,6 +8,7 @@
   "buy_quantity_btc": 0.0022,
   "expected_change_buy": 2,
   "expected_change_sell": 10,
-  "final_buy_price_change": 1
+  "final_buy_price_change": 1,
+  "symbols": ["ETHBTC"]
 
 }

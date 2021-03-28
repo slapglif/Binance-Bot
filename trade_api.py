@@ -26,9 +26,12 @@ class TradeAPI:
         try:
             self.ticker_data = requests.get(config.ticker_api).json()
             self.exchange_data = requests.get(config.exchange_api).json()
-        except json.JSONDecodeError as e:
+        except Exception as e:
             print(e)
-        self.symbols = [self.ticker_data[ticker].get('symbol') for ticker in range(len(self.ticker_data)) if "BTC" in self.ticker_data[ticker].get('symbol')]
+            print("Exiting program due to api error...")
+            exit()
+        if len(config.symbols) < 1:
+            self.symbols = [self.ticker_data[ticker].get('symbol') for ticker in range(len(self.ticker_data)) if "BTC" in self.ticker_data[ticker].get('symbol')]
         self.symbol_data = self.exchange_data.get('symbols')
 
     @staticmethod
