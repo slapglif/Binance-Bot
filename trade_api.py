@@ -30,9 +30,10 @@ class TradeAPI:
             print(e)
             print("Exiting program due to api error...")
             exit()
-        if len(config.symbols) < 1:
-            self.symbols = [self.ticker_data[ticker].get('symbol') for ticker in range(len(self.ticker_data)) if "BTC" in self.ticker_data[ticker].get('symbol')]
-        self.symbol_data = self.exchange_data.get('symbols')
+            self.symbols = [self.ticker_data[ticker].get('symbol')
+                            for ticker in range(len(self.ticker_data))
+                            if "BTC" in self.ticker_data[ticker].get('symbol')] \
+                if len(config.symbols) < 1 else self.exchange_data.get('symbols')
 
     @staticmethod
     def get_price_action(symbol: str) -> dict:
