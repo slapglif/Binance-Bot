@@ -127,7 +127,7 @@ def check_sell():
                             print(e)
         except Exception as e:
             print(e)
-        time.sleep(5)
+        time.sleep(trade_api.wait_time)
 
 
 def main():

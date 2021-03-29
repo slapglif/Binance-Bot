@@ -1,6 +1,6 @@
 {
   "ticker_api": "https://api.binance.com/api/v3/ticker/price",
-  "exchange_api": "https://api.binance.com//api/v1/exchangeInfo",
+  "exchange_api": "https://api.binance.com/api/v3/exchangeInfo",
   "api_key": "",
   "api_secret": "",
   "wait_time": 5,
