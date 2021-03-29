@@ -49,7 +49,7 @@ class TradeAPI:
     def calculate_min(self, symbol) -> Tuple[int, float]:
         min_price = 0
         min_quantity = 0
-        for ticker in self.symbol_data:
+        for ticker in self.ticker_data:
             if ticker.get('symbol') == symbol:
                 filters = ticker.get('filters')
                 if filters and len(filters) > 1:
