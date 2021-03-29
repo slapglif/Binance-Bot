@@ -2,6 +2,7 @@ import time
 import threading
 from models import Session, Trades
 from trade_api import TradeAPI
+from utils import handle_error
 
 db = Session()
 trade_api = TradeAPI()
@@ -52,11 +53,11 @@ def check_pump():
                                 db.commit()
                                 check_buy_status(symbol)
                         except Exception as e:
-                            # print(e)
+                            handle_error(e)
                             pass
                 time.sleep(trade_api.wait_time)
         except Exception as e:
-            print(e)
+            handle_error(e)
 
 # TODO: Abstract the check_buy and check_sell status to a single method
 def check_buy_status(pair):
@@ -76,7 +77,7 @@ def check_buy_status(pair):
                     else:
                         print(f"{open_order.pair} Not FILLED yet...")
     except Exception as e:
-        print(e)
+        handle_error(e)
 
 
 def check_sell_status(pair):
@@ -97,7 +98,7 @@ def check_sell_status(pair):
                     else:
                         print(f"{open_sell.pair} Not FILLED yet...")
     except Exception as e:
-        print(e)
+        handle_error(e)
 
 
 def check_sell():
@@ -124,9 +125,9 @@ def check_sell():
                             db.commit()
                             check_sell_status(open_order.pair)
                         except Exception as e:
-                            print(e)
+                            handle_error(e)
         except Exception as e:
-            print(e)
+            handle_error(e)
         time.sleep(trade_api.wait_time)
 
 

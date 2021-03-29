@@ -10,5 +10,5 @@
   "expected_change_sell": 10,
   "final_buy_price_change": 1,
   "symbols": ["ETHBTC"],
-  "manual_input": false
+  "manual_input": true
 }

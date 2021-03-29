@@ -35,11 +35,12 @@ class TradeAPI:
                         if "BTC" in self.ticker_data[ticker].get('symbol')] \
             if len(config.symbols) < 1 else config.symbols
         if config.manual_input:
-            self.symbols = [input("Enter symbols manually seperated by commas, I.E: BTCETH, BTCLNK")]
+            self.symbols = input("Enter symbols manually separated by commas, I.E: BTCETH, BTCLNK\n").split(",")
+            print(self.symbols)
 
     @staticmethod
     def get_price_action(symbol: str) -> dict:
-        response = requests.get(f"https://api.binance.com/api/v1/ticker/24hr?symbol={symbol}")
+        response = requests.get(f"https://api.binance.com/api/v3/ticker/24hr?symbol={symbol}")
         try:
             return response.json()
         except json.JSONDecodeError as e:
