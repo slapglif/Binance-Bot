@@ -34,6 +34,8 @@ class TradeAPI:
                         for ticker in range(len(self.ticker_data))
                         if "BTC" in self.ticker_data[ticker].get('symbol')] \
             if len(config.symbols) < 1 else config.symbols
+        if config.manual_input:
+            self.symbols = [input("Enter symbols manually seperated by commas, I.E: BTCETH, BTCLNK")]
 
     @staticmethod
     def get_price_action(symbol: str) -> dict:
