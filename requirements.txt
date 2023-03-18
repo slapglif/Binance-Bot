@@ -1,0 +1,6 @@
+pydantic==1.8.2
+pytest==6.2.5
+python-dotenv==1.0.0
+SQLAlchemy==1.4.35
+python-binance==1.0.17
+app~=0.0.1
