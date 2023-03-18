@@ -8,6 +8,14 @@ Since python is shifting toward type safety, in this version we have leveraged t
 In order to use this code, you must have a Binance account and API keys. You can create an account and generate API keys here: 
 https://www.binance.com/en/register
 
+## Refactoring Motivation
+The initial implementation of the bot system contained several issues related to code readability, maintainability, and best practices. The primary goal of our refactor was to:
+
+* **Improve code readability**: We broke down complex code blocks into smaller, more manageable functions, making it easier to understand the system's logic and purpose.
+* **Reduce cognitive complexity**: We simplified nested conditions and loops, which helped make the code more approachable and easier to reason about.
+* **Leverage modern Python features**: We introduced the use of f-strings, type annotations, and namedtuples to make the code more expressive and easier to maintain.
+* **Improve error handling**: We addressed potential issues related to list access, making the code more robust and less prone to errors.
+
 ## Installation
 if you have not already, install python 3.8 or higher and pip, then run the following commands in the terminal:
 `pip install -r requirements.txt`
@@ -36,7 +44,7 @@ then navigate to http://localhost:8000/ in your browser
 
 ## Usage
 To run the code, run the following command in the terminal:\
-```python pump_dump_bot.py```
+```python run.py```
 
 
 ## Explanation
